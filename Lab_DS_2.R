@@ -17,14 +17,16 @@ View(complete_data)
 
 # UNIVARIATE ANALYSIS
 
+library("dplyr")
+library("dlookr")
+library("tidyverse")
+
 #Descriptive Statistics
 describe(complete_data)
 normality(complete_data)
 plot_normality(complete_data)
 
 # BIVARIATE/MULTIVARIATE ANALYSIS
-
-library("dplyr")
 
 correlate(complete_data, Tenure, Total.Charges)
 complete_data %>%
@@ -50,7 +52,6 @@ num_num
 summary(num_num)
 plot(num_num)
 
-library("dlookr")
 complete_data %>%
     eda_paged_report(target = "Churn", title = "Exploratory Data Analysis Report", 
                      subtitle = "Lab 2 Week 4", output_dir = "./", 
